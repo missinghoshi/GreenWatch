@@ -1,0 +1,19 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Reporte {
+  id          Int      @id @default(autoincrement())
+  titulo      String
+  descripcion String
+  categoria   String?
+  imagen      String?
+  latitud     Float?
+  longitud    Float?
+  fecha       DateTime @default(now())
+}
